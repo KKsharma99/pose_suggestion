@@ -55,12 +55,12 @@ if modelName in ["simpleAE", "convAE"]:
         shape_img_resize = shape_img
         input_shape_model = (model.encoder.input.shape[1],)
         output_shape_model = (model.encoder.output.shape[1],)
-        n_epochs = 400
+        n_epochs = 2000
     elif modelName == "convAE":
         shape_img_resize = shape_img
         input_shape_model = tuple([int(x) for x in model.encoder.input.shape[1:]])
         output_shape_model = tuple([int(x) for x in model.encoder.output.shape[1:]])
-        n_epochs = 500
+        n_epochs = 2000
     else:
         raise Exception("Invalid modelName!")
 
