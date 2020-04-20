@@ -18,7 +18,7 @@ from src.CV_plot_utils import plot_query_retrieval, plot_tsne, plot_reconstructi
 from src.autoencoder import AutoEncoder
 
 # Run mode: (autoencoder -> simpleAE, convAE) or (transfer learning -> vgg19)
-modelName = "simpleAE"  # try: "simpleAE", "convAE", "vgg19"
+modelName = "convAE"  # try: "simpleAE", "convAE", "vgg19"
 trainModel = True
 parallel = True  # use multicore processing
 
@@ -55,12 +55,12 @@ if modelName in ["simpleAE", "convAE"]:
         shape_img_resize = shape_img
         input_shape_model = (model.encoder.input.shape[1],)
         output_shape_model = (model.encoder.output.shape[1],)
-        n_epochs = 2000
+        n_epochs = 1000
     elif modelName == "convAE":
         shape_img_resize = shape_img
         input_shape_model = tuple([int(x) for x in model.encoder.input.shape[1:]])
         output_shape_model = tuple([int(x) for x in model.encoder.output.shape[1:]])
-        n_epochs = 2000
+        n_epochs = 1000
     else:
         raise Exception("Invalid modelName!")
 
